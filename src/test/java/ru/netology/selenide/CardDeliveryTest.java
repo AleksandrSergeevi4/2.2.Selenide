@@ -44,7 +44,6 @@ class CardDeliveryTest {
     public void shouldFillCardFormWithListAndCalendarTool() {
         $("[data-test-id='city'] input").setValue("Во");
         $(Selectors.byText("Волгоград")).click();
-        $("[data-test-id='date'] input").sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME), Keys.BACK_SPACE);
         $("[data-test-id='date'] input").doubleClick().sendKeys(generateDate(7, "dd.MM.yyyy"));
         $("[data-test-id='name'] input").setValue("Александр Сергеевич");
         $("[data-test-id='phone'] input").setValue("+79005005050");
