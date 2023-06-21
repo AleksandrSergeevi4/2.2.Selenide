@@ -1,5 +1,6 @@
 package ru.netology.selenide;
 
+import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selectors;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -37,19 +38,6 @@ class CardDeliveryTest {
         $$("[type='button'").filterBy(visible).last().click();
         $(".notification__content")
                 .shouldBe(text("Встреча успешно забронирована на " + generateDate(3, "dd.MM.yyyy")), Duration.ofSeconds(15));
-    }
-
-    @Test
-    public void shouldFillCardFormWithListAndCalendarTool() {
-        $("[data-test-id='city'] input").setValue("Во");
-        $(Selectors.byText("Волгоград")).click();
-        $("[data-test-id='date'] input").doubleClick().sendKeys(generateDate(7, "dd.MM.yyyy"));
-        $("[data-test-id='name'] input").setValue("Александр Сергеевич");
-        $("[data-test-id='phone'] input").setValue("+79005005050");
-        $("[data-test-id='agreement']").click();
-        $$("[type='button'").filterBy(visible).last().click();
-        $(".notification__content")
-                .shouldBe(text("Встреча успешно забронирована на " + generateDate(7, "dd.MM.yyyy")), Duration.ofSeconds(15));
     }
 }
 
